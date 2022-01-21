@@ -11,5 +11,7 @@ public class App {
         x.fromLeftHorizontal();
         System.out.print("\n");
         x.fromRightHorizontal();
+        System.out.print("\n");
+        x.fromTopVertical();
     }
 }
