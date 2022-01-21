@@ -7,5 +7,8 @@ public class App {
         WordSearchPuzzle x = new WordSearchPuzzle(filename);
         System.out.println(x.alphabet);
         System.out.println(x.word);
+        x.fromLeftHorizontal();
+        System.out.println(x.alphabet.get(0).get(2).length());
+        System.out.println(String.valueOf(x.word.get(0).charAt(1)).length());
     }
 }
