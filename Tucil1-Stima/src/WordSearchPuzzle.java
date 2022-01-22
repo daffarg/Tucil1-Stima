@@ -75,7 +75,7 @@ public class WordSearchPuzzle {
             for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
                 int wordLength = this.word.get(j).length();
                 int k = textLength - 1;
-                while (k >= (textLength - wordLength - 1) && !found) { // loop dalam pemeriksaan karakter
+                while (k >= (wordLength - 1) && !found) { // loop dalam pemeriksaan karakter
                     int l = 0;
                     while ((l < wordLength) && (this.alphabet.get(i).get(k-l).equals(String.valueOf(this.word.get(j).charAt(l))))) { // loop dalam pemeriksaan karakter
                         l ++;
@@ -130,6 +130,41 @@ public class WordSearchPuzzle {
                         found = true;
                     } else {
                         k ++;
+                    }
+                }
+            }
+        }
+    }
+
+    // Pencarian vertical dari bawah
+
+    public void fromBottomVertical() {
+        for (int i = 0; i < this.alphabet.size(); i ++) { // loop untuk tiap kolom matriks
+            boolean found = false;
+            int textLength = this.alphabet.size();
+            for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
+                int wordLength = this.word.get(j).length();
+                int k = textLength - 1;
+                while (k >= (wordLength - 1) && !found) { // loop dalam pemeriksaan karakter
+                    int l = 0;
+                    while ((l < wordLength) && (this.alphabet.get(k - l).get(i).equals(String.valueOf(this.word.get(j).charAt(l))))) { // loop dalam pemeriksaan karakter
+                        l ++;
+                    }
+                    if (l == wordLength) {
+                        int printed = k+1-l;
+                        for (int row = 0; row < this.alphabet.size(); row ++) {
+                            for (int col = 0; col < this.alphabet.get(0).size(); col ++) {
+                                if (col == i && row >= printed && row <= printed + wordLength - 1) {
+                                    System.out.print(this.alphabet.get(row).get(col) + " ");
+                                } else {
+                                    System.out.print("- ");
+                                }
+                            }
+                            System.out.print("\n");
+                        }
+                        found = true;
+                    } else {
+                        k --;
                     }
                 }
             }
