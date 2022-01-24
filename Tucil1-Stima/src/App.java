@@ -15,5 +15,10 @@ public class App {
         x.fromTopVertical();
         System.out.print("\n");
         x.fromBottomVertical();
+        System.out.print("\n");
+        x.fromLeftTopDiagonal();
+        System.out.print("\n");
+        x.fromRightTopDiagonal();
+        System.out.print("\n");
     }
 }
