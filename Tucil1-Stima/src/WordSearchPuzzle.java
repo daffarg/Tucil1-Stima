@@ -34,6 +34,7 @@ public class WordSearchPuzzle {
     // Pencarian horizontal dari kiri
 
     public void fromLeftHorizontal() {
+        int lettersCompared = 0;
         for (int i = 0; i < this.alphabet.size(); i ++) { // loop untuk tiap baris matriks
             boolean found = false;
             int textLength = this.alphabet.get(i).size();
@@ -43,6 +44,7 @@ public class WordSearchPuzzle {
                 while (k <= (textLength - wordLength) && !found) { // loop dalam pemeriksaan karakter
                     int l = 0;
                     while ((l < wordLength) && (this.alphabet.get(i).get(k + l).equals(String.valueOf(this.word.get(j).charAt(l))))) { // loop dalam pemeriksaan karakter
+                        lettersCompared ++;
                         l ++;
                     }
                     if (l == wordLength) {
@@ -57,12 +59,14 @@ public class WordSearchPuzzle {
                             }
                             System.out.print("\n");
                         }
+                        System.out.println("Jumlah komparasi huruf: " + lettersCompared);
                         System.out.println("\n");
                         found = true;
                     } else {
                         k ++;
                     }
                 }
+                lettersCompared = 0;
             }
         }
     }
@@ -70,6 +74,7 @@ public class WordSearchPuzzle {
     // Pencarian horizontal dari kanan
 
     public void fromRightHorizontal() {
+        int lettersCompared = 0;
         for (int i = 0; i < this.alphabet.size(); i ++) { // loop untuk tiap baris matriks
             boolean found = false;
             int textLength = this.alphabet.get(i).size();
@@ -93,12 +98,14 @@ public class WordSearchPuzzle {
                             }
                             System.out.print("\n");
                         }
+                        System.out.println("Jumlah komparasi huruf: " + lettersCompared);
                         System.out.println("\n");
                         found = true;
                     } else {
                         k --;
                     }
                 }
+                lettersCompared = 0;
             }
         }
     }
@@ -106,6 +113,7 @@ public class WordSearchPuzzle {
     // Pencarian vertical dari atas
 
     public void fromTopVertical() {
+        int lettersCompared = 0;
         for (int i = 0; i < this.alphabet.get(0).size(); i ++) { // loop untuk tiap kolom matriks
             boolean found = false;
             int textLength = this.alphabet.size();
@@ -129,12 +137,14 @@ public class WordSearchPuzzle {
                             }
                             System.out.print("\n");
                         }
+                        System.out.println("Jumlah komparasi huruf: " + lettersCompared);
                         System.out.println("\n");
                         found = true;
                     } else {
                         k ++;
                     }
                 }
+                lettersCompared = 0;
             }
         }
     }
@@ -142,6 +152,7 @@ public class WordSearchPuzzle {
     // Pencarian vertical dari bawah
 
     public void fromBottomVertical() {
+        int lettersCompared = 0;
         for (int i = 0; i < this.alphabet.get(0).size(); i ++) { // loop untuk tiap kolom matriks
             boolean found = false;
             int textLength = this.alphabet.size();
@@ -165,12 +176,14 @@ public class WordSearchPuzzle {
                             }
                             System.out.print("\n");
                         }
+                        System.out.println("Jumlah komparasi huruf: " + lettersCompared);
                         System.out.println("\n");
                         found = true;
                     } else {
                         k --;
                     }
                 }
+                lettersCompared = 0;
             }
         }
     }
@@ -178,6 +191,7 @@ public class WordSearchPuzzle {
     // pencarian dari atas kiri secara diagonal 
 
     public void fromLeftTopDiagonal() {
+        int lettersCompared = 0;
         for (int i = 0; i < this.alphabet.size(); i ++) { // loop tiap baris puzzle
             if (i == 0) {
                 for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
@@ -216,6 +230,7 @@ public class WordSearchPuzzle {
                                     }
                                     System.out.print("\n");  
                                 }
+                                System.out.println("Jumlah komparasi huruf: " + lettersCompared);
                                 System.out.println("\n");
                                 found = true;
                             } else {
@@ -224,6 +239,7 @@ public class WordSearchPuzzle {
                             }
                         }
                     }
+                    lettersCompared = 0;
                 } 
             } else {
                 for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
@@ -261,6 +277,7 @@ public class WordSearchPuzzle {
                                 }
                                 System.out.print("\n");  
                             }
+                            System.out.println("Jumlah komparasi huruf: " + lettersCompared);
                             System.out.println("\n");
                             found = true;
                         } else {
@@ -268,6 +285,7 @@ public class WordSearchPuzzle {
                             kol ++;
                         }
                     }
+                    lettersCompared = 0;
                 }
             }   
         }
@@ -276,6 +294,7 @@ public class WordSearchPuzzle {
     // pencarian dari atas kanan secara diagonal
 
     public void fromRightTopDiagonal() {
+        int lettersCompared = 0;
         for (int i = 0; i < this.alphabet.size(); i ++) { // loop tiap baris puzzle
             if (i == 0) { // khusus baris pertama akan diloop untuk tiap kolomnya
                 for (int for_row_0 = this.alphabet.get(0).size() - 1; for_row_0 >= 0; for_row_0 --) {
@@ -307,6 +326,7 @@ public class WordSearchPuzzle {
                                     }
                                     System.out.print("\n");  
                                 }
+                                System.out.println("Jumlah komparasi huruf: " + lettersCompared);
                                 System.out.println("\n");
                                 found = true;
                             } else {
@@ -314,6 +334,7 @@ public class WordSearchPuzzle {
                                 kol --;
                             }
                         }
+                        lettersCompared = 0;
                     }
                 }
             } else {
@@ -352,6 +373,7 @@ public class WordSearchPuzzle {
                                 }
                                 System.out.print("\n");  
                             }
+                            System.out.println("Jumlah komparasi huruf: " + lettersCompared);
                             System.out.println("\n");
                             found = true;
                         } else {
@@ -359,6 +381,7 @@ public class WordSearchPuzzle {
                             kol --;
                         }
                     }
+                    lettersCompared = 0;
                 }
             }   
         }
@@ -367,6 +390,7 @@ public class WordSearchPuzzle {
     // pencarian dari bawah kiri secara diagonal
 
     public void fromLeftBottomDiagonal() {
+        int lettersCompared = 0;
         for (int i = this.alphabet.size() - 1; i >= 0; i --) { // loop tiap baris puzzle
             if (i == this.alphabet.size() - 1) { 
                 for (int for_last_row = 0; for_last_row < this.alphabet.get(0).size(); for_last_row ++) { // khusus baris terakhir akan diloop untuk tiap kolomnya
@@ -405,6 +429,7 @@ public class WordSearchPuzzle {
                                     }
                                     System.out.print("\n");  
                                 }
+                                System.out.println("Jumlah komparasi huruf: " + lettersCompared);
                                 System.out.println("\n");
                                 found = true;
                             } else {
@@ -412,6 +437,7 @@ public class WordSearchPuzzle {
                                 kol ++;
                             }
                         }
+                        lettersCompared = 0;
                     }
                 }
             } else {
@@ -579,7 +605,3 @@ public class WordSearchPuzzle {
         System.out.println("\n");
     }
 }
-
-
-
-
