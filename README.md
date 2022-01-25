@@ -1,17 +1,13 @@
-## Getting Started
+### Tugas Kecil 1 IF2211 - Strategi Algoritma
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Tugas ini merupakan implementasi algoritma Brute Force untuk menyelesaikan Word Search Puzzle.
 
-## Folder Structure
+## Struktur Folder
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- `src`: source code program
+- `bin`: executable
+- `test`: file teks untuk menguji program
+- `doc`: laporan
 
 ## Dependency Management
 
