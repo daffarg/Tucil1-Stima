@@ -57,6 +57,7 @@ public class WordSearchPuzzle {
                             }
                             System.out.print("\n");
                         }
+                        System.out.println("\n");
                         found = true;
                     } else {
                         k ++;
@@ -92,6 +93,7 @@ public class WordSearchPuzzle {
                             }
                             System.out.print("\n");
                         }
+                        System.out.println("\n");
                         found = true;
                     } else {
                         k --;
@@ -127,6 +129,7 @@ public class WordSearchPuzzle {
                             }
                             System.out.print("\n");
                         }
+                        System.out.println("\n");
                         found = true;
                     } else {
                         k ++;
@@ -162,6 +165,7 @@ public class WordSearchPuzzle {
                             }
                             System.out.print("\n");
                         }
+                        System.out.println("\n");
                         found = true;
                     } else {
                         k --;
@@ -175,22 +179,22 @@ public class WordSearchPuzzle {
 
     public void fromLeftTopDiagonal() {
         for (int i = 0; i < this.alphabet.size(); i ++) { // loop tiap baris puzzle
-            if (i == 0) { // khusus baris pertama akan diloop untuk tiap kolomnya
-                for (int for_row_0 = 0; for_row_0 < this.alphabet.get(0).size(); for_row_0 ++) {
-                    int kol = for_row_0;
-                    boolean found = false;
-                    int ct_row = i;
-                    int ct_col = kol;
-                    int textLength = 0;
-                    while (ct_row <= this.alphabet.size() && ct_col <= this.alphabet.get(0).size()) {
-                        textLength ++;
-                        ct_row ++;
-                        ct_col ++;
-                    }
-                    for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
+            if (i == 0) {
+                for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
+                    for (int for_row_0 = 0; for_row_0 < this.alphabet.get(0).size(); for_row_0 ++) { // khusus baris pertama akan diloop untuk tiap kolomnya
+                        int kol = for_row_0;
+                        boolean found = false;
+                        int ct_row = i;
+                        int ct_col = kol;
+                        int textLength = 0;
+                        while (ct_row <= this.alphabet.size() && ct_col <= this.alphabet.get(0).size()) {
+                            textLength ++;
+                            ct_row ++;
+                            ct_col ++;
+                        }
                         int wordLength = this.word.get(j).length();
                         int k = i;
-                        while (kol <= textLength - wordLength && !found) {
+                        while (k <= textLength - wordLength && !found) {
                             int l = 0;
                             while (l < wordLength && (this.alphabet.get(k + l).get(kol + l).equals(String.valueOf(this.word.get(j).charAt(l))))) {
                                 l ++;
@@ -212,6 +216,7 @@ public class WordSearchPuzzle {
                                     }
                                     System.out.print("\n");  
                                 }
+                                System.out.println("\n");
                                 found = true;
                             } else {
                                 k ++;
@@ -219,22 +224,22 @@ public class WordSearchPuzzle {
                             }
                         }
                     }
-                }
+                } 
             } else {
-                int kol = 0;
-                boolean found = false;
-                int ct_row = i;
-                int ct_col = kol;
-                int textLength = 0;
-                while (ct_row <= this.alphabet.size() && ct_col <= this.alphabet.get(0).size()) {
-                    textLength ++;
-                    ct_row ++;
-                    ct_col ++;
-                }
                 for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
+                    int kol = 0;
+                    boolean found = false;
+                    int ct_row = i;
+                    int ct_col = kol;
+                    int textLength = 0;
+                    while (ct_row <= this.alphabet.size() && ct_col <= this.alphabet.get(0).size()) {
+                        textLength ++;
+                        ct_row ++;
+                        ct_col ++;
+                    }
                     int wordLength = this.word.get(j).length();
                     int k = i;
-                    while (k <= textLength - wordLength && !found) {
+                    while (kol <= textLength - wordLength && !found) {
                         int l = 0;
                         while (l < wordLength && (this.alphabet.get(k + l).get(kol + l).equals(String.valueOf(this.word.get(j).charAt(l))))) {
                             l ++;
@@ -256,6 +261,7 @@ public class WordSearchPuzzle {
                                 }
                                 System.out.print("\n");  
                             }
+                            System.out.println("\n");
                             found = true;
                         } else {
                             k ++;
@@ -301,6 +307,7 @@ public class WordSearchPuzzle {
                                     }
                                     System.out.print("\n");  
                                 }
+                                System.out.println("\n");
                                 found = true;
                             } else {
                                 k ++;
@@ -310,17 +317,17 @@ public class WordSearchPuzzle {
                     }
                 }
             } else {
-                int kol = this.alphabet.get(0).size() - 1;
-                boolean found = false;
-                int ct_row = i;
-                int ct_col = kol;
-                int textLength = 0;
-                while (ct_row <= this.alphabet.size() && ct_col >= 0) {
-                    textLength ++;
-                    ct_row ++;
-                    ct_col --;
-                }
                 for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
+                    int kol = this.alphabet.get(0).size() - 1;
+                    boolean found = false;
+                    int ct_row = i;
+                    int ct_col = kol;
+                    int textLength = 0;
+                    while (ct_row <= this.alphabet.size() && ct_col >= 0) {
+                        textLength ++;
+                        ct_row ++;
+                        ct_col --;
+                    }
                     int wordLength = this.word.get(j).length();
                     int k = i;
                     while (k <= textLength - wordLength && !found) {
@@ -345,6 +352,7 @@ public class WordSearchPuzzle {
                                 }
                                 System.out.print("\n");  
                             }
+                            System.out.println("\n");
                             found = true;
                         } else {
                             k ++;
@@ -360,22 +368,22 @@ public class WordSearchPuzzle {
 
     public void fromLeftBottomDiagonal() {
         for (int i = this.alphabet.size() - 1; i >= 0; i --) { // loop tiap baris puzzle
-            if (i == this.alphabet.size() - 1) { // khusus baris terakhir akan diloop untuk tiap kolomnya
-                for (int for_last_row = 0; for_last_row < this.alphabet.get(0).size(); for_last_row ++) {
-                    int kol = for_last_row;
-                    boolean found = false;
-                    int ct_row = i;
-                    int ct_col = kol;
-                    int textLength = 0;
-                    while (ct_row >= 0 && ct_col <= this.alphabet.get(0).size()) {
-                        textLength ++;
-                        ct_row --;
-                        ct_col ++;
-                    }
+            if (i == this.alphabet.size() - 1) { 
+                for (int for_last_row = 0; for_last_row < this.alphabet.get(0).size(); for_last_row ++) { // khusus baris terakhir akan diloop untuk tiap kolomnya
                     for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
+                        int kol = for_last_row;
+                        boolean found = false;
+                        int ct_row = i;
+                        int ct_col = kol;
+                        int textLength = 0;
+                        while (ct_row >= 0 && ct_col <= this.alphabet.get(0).size()) {
+                            textLength ++;
+                            ct_row --;
+                            ct_col ++;
+                        }
                         int wordLength = this.word.get(j).length();
                         int k = i;
-                        while (kol <= textLength - wordLength && !found) {
+                        while (kol <= ct_col - wordLength && !found) {
                             int l = 0;
                             while (l < wordLength && (this.alphabet.get(k - l).get(kol + l).equals(String.valueOf(this.word.get(j).charAt(l))))) {
                                 l ++;
@@ -397,6 +405,7 @@ public class WordSearchPuzzle {
                                     }
                                     System.out.print("\n");  
                                 }
+                                System.out.println("\n");
                                 found = true;
                             } else {
                                 k --;
@@ -406,26 +415,25 @@ public class WordSearchPuzzle {
                     }
                 }
             } else {
-                int kol = 0;
-                boolean found = false;
-                int ct_row = i;
-                int ct_col = kol;
-                int textLength = 0;
-                while (ct_row >= 0 && ct_col <= this.alphabet.get(0).size()) {
-                    textLength ++;
-                    ct_row --;
-                    ct_col ++;
-                }
                 for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
+                    int kol = 0;
+                    boolean found = false;
+                    int ct_row = i;
+                    int ct_col = kol;
+                    int textLength = 0;
+                    while (ct_row >= 0 && ct_col <= this.alphabet.get(0).size()) {
+                        textLength ++;
+                        ct_row --;
+                        ct_col ++;
+                    } 
                     int wordLength = this.word.get(j).length();
                     int k = i;
-                    while (k >= wordLength - 1 && !found) {
+                    while (kol <= ct_col - wordLength && !found) {
                         int l = 0;
                         while (l < wordLength && (this.alphabet.get(k - l).get(kol + l).equals(String.valueOf(this.word.get(j).charAt(l))))) {
                             l ++;
                         }
                         if (l == wordLength) { // match pada baris k dan kolom kol
-                            
                             int row_printed = k - wordLength + 1;
                             int col_printed = kol + wordLength - 1;
                             for (int row = 0; row < this.alphabet.size(); row ++) {
@@ -442,6 +450,7 @@ public class WordSearchPuzzle {
                                 }
                                 System.out.print("\n");  
                             }
+                            System.out.println("\n");
                             found = true;
                         } else {
                             k --;
@@ -457,17 +466,17 @@ public class WordSearchPuzzle {
         for (int i = this.alphabet.size() - 1; i >= 0; i --) { // loop tiap baris puzzle
             if (i == this.alphabet.size() - 1) { // khusus baris terakhir akan diloop untuk tiap kolomnya
                 for (int for_last_row = 0; for_last_row < this.alphabet.get(0).size(); for_last_row ++) {
-                    int kol = for_last_row;
-                    boolean found = false;
-                    int ct_row = i;
-                    int ct_col = kol;
-                    int textLength = 0;
-                    while (ct_row >= 0 && ct_col >= 0) {
-                        textLength ++;
-                        ct_row --;
-                        ct_col --;
-                    }
                     for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
+                        int kol = for_last_row;
+                        boolean found = false;
+                        int ct_row = i;
+                        int ct_col = kol;
+                        int textLength = 0;
+                        while (ct_row >= 0 && ct_col >= 0) {
+                            textLength ++;
+                            ct_row --;
+                            ct_col --;
+                        }  
                         int wordLength = this.word.get(j).length();
                         int k = i;
                         while (kol >= wordLength - 1 && !found) {
@@ -492,6 +501,7 @@ public class WordSearchPuzzle {
                                     }
                                     System.out.print("\n");  
                                 }
+                                System.out.println("\n");
                                 found = true;
                             } else {
                                 k --;
@@ -501,17 +511,17 @@ public class WordSearchPuzzle {
                     }
                 }
             } else {
-                int kol = this.alphabet.get(0).size() - 1;
-                boolean found = false;
-                int ct_row = i;
-                int ct_col = kol;
-                int textLength = 0;
-                while (ct_row >= 0 && ct_col >= 0) {
-                    textLength ++;
-                    ct_row --;
-                    ct_col --;
-                }
                 for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
+                    int kol = this.alphabet.get(0).size() - 1;
+                    boolean found = false;
+                    int ct_row = i;
+                    int ct_col = kol;
+                    int textLength = 0;
+                    while (ct_row >= 0 && ct_col >= 0) {
+                        textLength ++;
+                        ct_row --;
+                        ct_col --;
+                    }
                     int wordLength = this.word.get(j).length();
                     int k = i;
                     while (k >= wordLength - 1 && !found) {
@@ -537,6 +547,7 @@ public class WordSearchPuzzle {
                                 }
                                 System.out.print("\n");  
                             }
+                            System.out.println("\n");
                             found = true;
                         } else {
                             k --;
@@ -549,6 +560,7 @@ public class WordSearchPuzzle {
     }
     
     public void solvePuzzle() {
+        System.out.println("Berikut adalah solusi dari puzzle yang disubmit: ");
         fromLeftHorizontal();
         System.out.print("\n");
         fromRightHorizontal();
