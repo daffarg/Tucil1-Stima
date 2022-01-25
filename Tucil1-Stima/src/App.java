@@ -12,5 +12,6 @@ public class App {
         long endTime   = System.nanoTime();
         long totalTime = endTime - startTime;
         System.out.println("Total waktu eksekusi program: " + totalTime + " ns");
+        System.out.println("\n");
     }
 }
