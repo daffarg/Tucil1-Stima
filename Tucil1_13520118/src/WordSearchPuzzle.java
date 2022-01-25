@@ -593,21 +593,14 @@ public class WordSearchPuzzle {
     
     public void solvePuzzle() {
         System.out.println("Berikut adalah solusi dari puzzle yang disubmit: ");
+        System.out.println("\n");
         fromLeftHorizontal();
-        System.out.print("\n");
         fromRightHorizontal();
-        System.out.print("\n");
         fromTopVertical();
-        System.out.print("\n");
         fromBottomVertical();
-        System.out.print("\n");
         fromLeftTopDiagonal();
-        System.out.print("\n");
         fromRightTopDiagonal();
-        System.out.print("\n");
         fromLeftBottomDiagonal();
-        System.out.println("\n");
         fromRightBottomDiagonal();
-        System.out.println("\n");
     }
 }
