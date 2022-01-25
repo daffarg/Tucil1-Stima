@@ -171,13 +171,22 @@ public class WordSearchPuzzle {
         }
     }
 
+    // pencarian dari atas kiri secara diagonal 
+
     public void fromLeftTopDiagonal() {
         for (int i = 0; i < this.alphabet.size(); i ++) { // loop tiap baris puzzle
             if (i == 0) { // khusus baris pertama akan diloop untuk tiap kolomnya
                 for (int for_row_0 = 0; for_row_0 < this.alphabet.get(0).size(); for_row_0 ++) {
                     int kol = for_row_0;
                     boolean found = false;
-                    int textLength = this.alphabet.size() - i + 1;
+                    int ct_row = i;
+                    int ct_col = kol;
+                    int textLength = 0;
+                    while (ct_row <= this.alphabet.size() && ct_col <= this.alphabet.get(0).size()) {
+                        textLength ++;
+                        ct_row ++;
+                        ct_col ++;
+                    }
                     for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
                         int wordLength = this.word.get(j).length();
                         int k = i;
@@ -214,7 +223,14 @@ public class WordSearchPuzzle {
             } else {
                 int kol = 0;
                 boolean found = false;
-                int textLength = this.alphabet.size() - i + 1;
+                int ct_row = i;
+                int ct_col = kol;
+                int textLength = 0;
+                while (ct_row <= this.alphabet.size() && ct_col <= this.alphabet.get(0).size()) {
+                    textLength ++;
+                    ct_row ++;
+                    ct_col ++;
+                }
                 for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
                     int wordLength = this.word.get(j).length();
                     int k = i;
@@ -251,13 +267,15 @@ public class WordSearchPuzzle {
         }
     } 
 
+    // pencarian dari atas kanan secara diagonal
+
     public void fromRightTopDiagonal() {
         for (int i = 0; i < this.alphabet.size(); i ++) { // loop tiap baris puzzle
             if (i == 0) { // khusus baris pertama akan diloop untuk tiap kolomnya
                 for (int for_row_0 = this.alphabet.get(0).size() - 1; for_row_0 >= 0; for_row_0 --) {
                     int kol = for_row_0;
                     boolean found = false;
-                    int textLength = this.alphabet.size() - i + 1;
+                    int textLength = this.alphabet.size() - kol;
                     for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
                         int wordLength = this.word.get(j).length();
                         int k = i;
@@ -273,7 +291,7 @@ public class WordSearchPuzzle {
                                     for (int col = 0; col < this.alphabet.get(0).size(); col ++) {
                                         if (row == row_printed && col == col_printed) {
                                             System.out.print(this.alphabet.get(row).get(col) + " ");
-                                            if (col_printed < kol + wordLength - 1 && row_printed < k + wordLength - 1) {
+                                            if (col_printed > kol - wordLength + 1 && row_printed < k + wordLength - 1) {
                                                 row_printed ++;
                                                 col_printed --;
                                             }
@@ -294,7 +312,14 @@ public class WordSearchPuzzle {
             } else {
                 int kol = this.alphabet.get(0).size() - 1;
                 boolean found = false;
-                int textLength = this.alphabet.size() - i + 1;
+                int ct_row = i;
+                int ct_col = kol;
+                int textLength = 0;
+                while (ct_row <= this.alphabet.size() && ct_col >= 0) {
+                    textLength ++;
+                    ct_row ++;
+                    ct_col --;
+                }
                 for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
                     int wordLength = this.word.get(j).length();
                     int k = i;
@@ -310,7 +335,7 @@ public class WordSearchPuzzle {
                                 for (int col = 0; col < this.alphabet.get(0).size(); col ++) {
                                     if (row == row_printed && col == col_printed) {
                                         System.out.print(this.alphabet.get(row).get(col) + " ");
-                                        if (col_printed < kol + wordLength - 1 && row_printed < k + wordLength - 1) {
+                                        if (col_printed > kol - wordLength + 1 && row_printed < k + wordLength - 1) {
                                             row_printed ++;
                                             col_printed --;
                                         }
@@ -330,6 +355,217 @@ public class WordSearchPuzzle {
             }   
         }
     } 
+
+    // pencarian dari bawah kiri secara diagonal
+
+    public void fromLeftBottomDiagonal() {
+        for (int i = this.alphabet.size() - 1; i >= 0; i --) { // loop tiap baris puzzle
+            if (i == this.alphabet.size() - 1) { // khusus baris terakhir akan diloop untuk tiap kolomnya
+                for (int for_last_row = 0; for_last_row < this.alphabet.get(0).size(); for_last_row ++) {
+                    int kol = for_last_row;
+                    boolean found = false;
+                    int ct_row = i;
+                    int ct_col = kol;
+                    int textLength = 0;
+                    while (ct_row >= 0 && ct_col <= this.alphabet.get(0).size()) {
+                        textLength ++;
+                        ct_row --;
+                        ct_col ++;
+                    }
+                    for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
+                        int wordLength = this.word.get(j).length();
+                        int k = i;
+                        while (kol <= textLength - wordLength && !found) {
+                            int l = 0;
+                            while (l < wordLength && (this.alphabet.get(k - l).get(kol + l).equals(String.valueOf(this.word.get(j).charAt(l))))) {
+                                l ++;
+                            }
+                            if (l == wordLength) { // match pada baris k dan kolom kol
+                                int row_printed = k - wordLength + 1;
+                                int col_printed = kol + wordLength - 1;
+                                for (int row = 0; row < this.alphabet.size(); row ++) {
+                                    for (int col = 0; col < this.alphabet.get(0).size(); col ++) {
+                                        if (row == row_printed && col == col_printed) {
+                                            System.out.print(this.alphabet.get(row).get(col) + " ");
+                                            if (col_printed > kol && row_printed < k) {
+                                                row_printed ++;
+                                                col_printed --;
+                                            }
+                                        } else {
+                                            System.out.print("- ");
+                                        }
+                                    }
+                                    System.out.print("\n");  
+                                }
+                                found = true;
+                            } else {
+                                k --;
+                                kol ++;
+                            }
+                        }
+                    }
+                }
+            } else {
+                int kol = 0;
+                boolean found = false;
+                int ct_row = i;
+                int ct_col = kol;
+                int textLength = 0;
+                while (ct_row >= 0 && ct_col <= this.alphabet.get(0).size()) {
+                    textLength ++;
+                    ct_row --;
+                    ct_col ++;
+                }
+                for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
+                    int wordLength = this.word.get(j).length();
+                    int k = i;
+                    while (k >= wordLength - 1 && !found) {
+                        int l = 0;
+                        while (l < wordLength && (this.alphabet.get(k - l).get(kol + l).equals(String.valueOf(this.word.get(j).charAt(l))))) {
+                            l ++;
+                        }
+                        if (l == wordLength) { // match pada baris k dan kolom kol
+                            
+                            int row_printed = k - wordLength + 1;
+                            int col_printed = kol + wordLength - 1;
+                            for (int row = 0; row < this.alphabet.size(); row ++) {
+                                for (int col = 0; col < this.alphabet.get(0).size(); col ++) {
+                                    if (row == row_printed && col == col_printed) {
+                                        System.out.print(this.alphabet.get(row).get(col) + " ");
+                                        if (col_printed > kol && row_printed < k) {
+                                            row_printed ++;
+                                            col_printed --;
+                                        }
+                                    } else {
+                                        System.out.print("- ");
+                                    }
+                                }
+                                System.out.print("\n");  
+                            }
+                            found = true;
+                        } else {
+                            k --;
+                            kol ++;
+                        }
+                    }
+                }
+            }   
+        }
+    }  
+    
+    public void fromRightBottomDiagonal() {
+        for (int i = this.alphabet.size() - 1; i >= 0; i --) { // loop tiap baris puzzle
+            if (i == this.alphabet.size() - 1) { // khusus baris terakhir akan diloop untuk tiap kolomnya
+                for (int for_last_row = 0; for_last_row < this.alphabet.get(0).size(); for_last_row ++) {
+                    int kol = for_last_row;
+                    boolean found = false;
+                    int ct_row = i;
+                    int ct_col = kol;
+                    int textLength = 0;
+                    while (ct_row >= 0 && ct_col >= 0) {
+                        textLength ++;
+                        ct_row --;
+                        ct_col --;
+                    }
+                    for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
+                        int wordLength = this.word.get(j).length();
+                        int k = i;
+                        while (kol >= wordLength - 1 && !found) {
+                            int l = 0;
+                            while (l < wordLength && (this.alphabet.get(k - l).get(kol - l).equals(String.valueOf(this.word.get(j).charAt(l))))) {
+                                l ++;
+                            }
+                            if (l == wordLength) { // match pada baris k dan kolom kol
+                                int row_printed = k - wordLength + 1;
+                                int col_printed = kol - wordLength + 1;
+                                for (int row = 0; row < this.alphabet.size(); row ++) {
+                                    for (int col = 0; col < this.alphabet.get(0).size(); col ++) {
+                                        if (row == row_printed && col == col_printed) {
+                                            System.out.print(this.alphabet.get(row).get(col) + " ");
+                                            if (col_printed < kol && row_printed < k) {
+                                                row_printed ++;
+                                                col_printed ++;
+                                            }
+                                        } else {
+                                            System.out.print("- ");
+                                        }
+                                    }
+                                    System.out.print("\n");  
+                                }
+                                found = true;
+                            } else {
+                                k --;
+                                kol --;
+                            }
+                        }
+                    }
+                }
+            } else {
+                int kol = this.alphabet.get(0).size() - 1;
+                boolean found = false;
+                int ct_row = i;
+                int ct_col = kol;
+                int textLength = 0;
+                while (ct_row >= 0 && ct_col >= 0) {
+                    textLength ++;
+                    ct_row --;
+                    ct_col --;
+                }
+                for (int j = 0; j < this.word.size(); j ++) { // loop untuk tiap kata dalam kunci jawaban
+                    int wordLength = this.word.get(j).length();
+                    int k = i;
+                    while (k >= wordLength - 1 && !found) {
+                        int l = 0;
+                        while (l < wordLength && (this.alphabet.get(k - l).get(kol - l).equals(String.valueOf(this.word.get(j).charAt(l))))) {
+                            l ++;
+                        }
+                        if (l == wordLength) { // match pada baris k dan kolom kol
+                            
+                            int row_printed = k - wordLength + 1;
+                            int col_printed = kol - wordLength + 1;
+                            for (int row = 0; row < this.alphabet.size(); row ++) {
+                                for (int col = 0; col < this.alphabet.get(0).size(); col ++) {
+                                    if (row == row_printed && col == col_printed) {
+                                        System.out.print(this.alphabet.get(row).get(col) + " ");
+                                        if (col_printed < kol && row_printed < k) {
+                                            row_printed ++;
+                                            col_printed ++;
+                                        }
+                                    } else {
+                                        System.out.print("- ");
+                                    }
+                                }
+                                System.out.print("\n");  
+                            }
+                            found = true;
+                        } else {
+                            k --;
+                            kol --;
+                        }
+                    }
+                }
+            }   
+        }
+    }
+    
+    public void solvePuzzle() {
+        fromLeftHorizontal();
+        System.out.print("\n");
+        fromRightHorizontal();
+        System.out.print("\n");
+        fromTopVertical();
+        System.out.print("\n");
+        fromBottomVertical();
+        System.out.print("\n");
+        fromLeftTopDiagonal();
+        System.out.print("\n");
+        fromRightTopDiagonal();
+        System.out.print("\n");
+        fromLeftBottomDiagonal();
+        System.out.println("\n");
+        fromRightBottomDiagonal();
+        System.out.println("\n");
+    }
 }
 
 

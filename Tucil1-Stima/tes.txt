@@ -1,8 +1,7 @@
-T F S D T N 
-N E A Q S S
-D F S S T T
-F N S E M E
-A F S A S S
+T F S S S T 
+N E M S S S
+D E S E E T
+T E T E M T
+T T S A T S
 
 TES
-DAFFA
