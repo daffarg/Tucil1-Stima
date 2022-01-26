@@ -22,25 +22,25 @@ Nama: Mohamad Daffa Argakoesoemah
 
 Word Search Puzzle disimpan dalam file teks (.txt) dengan format sebagai berikut:
 ```
-E N	P T	A J	U F	D I	U P
-U L	S U	I D	F A	M K	E Y
-J T	E E	F X	N W	F N	V I
-M D	F P	F A	Z A	G E	M Q
-V B	V H	H G	C U	P F	K L
-T I	G E	R A	I G	B F	U L
-M T	H F	I N	N E	V A	J N
-T A	O G	S K	A T	H R	V R
-S E	M V	S R	Z N	Z I	A N
-Y V	G B	D K	P I	N G	O G
-V L	S L	Z Y	U A	R I	V T
-B B	V A	B J	W I	L X	L N
+J S O L U T I S
+S U N A R U U A
+N E P T U N E T
+S O N I E I S U
+R C E V T R E R
+A H T R A E S N
+M M E R C U R Y
 
-BEAR
-ELEPHANT
-GIRAFFE
-GOAT
-LION
-PANDA
-PENGUIN
-TIGER
+EARTH
+JUPITER
+MARS
+MERCURY
+NEPTUNE
+SATURN
+URANUS
+VENUS
 ```
+File teks ini ** harus disimpan dalam root folder ** (salin file ke root folder jika ingin menggunakan file teks yang ada pada folder `test`)
+
+1. Jalankan `App.java`
+2. Masukkan nama file beserta ekstensinya
+3. Solusi dari puzzle akan keluar pada layar
