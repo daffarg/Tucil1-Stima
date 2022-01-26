@@ -351,7 +351,7 @@ public class WordSearchPuzzle {
                         ct_col --;
                     }
                     int k = i;
-                    while (k <= textLength - wordLength && !found) {
+                    while (k <= textLength - wordLength + 1 && !found) {
                         int l = 0;
                         while (l < wordLength && (this.alphabet.get(k + l).get(kol - l).equals(String.valueOf(this.word.get(j).charAt(l))))) {
                             lettersCompared ++;
