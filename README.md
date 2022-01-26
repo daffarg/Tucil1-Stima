@@ -4,8 +4,7 @@ Tugas ini merupakan implementasi algoritma Brute Force untuk menyelesaikan Word 
 
 ## Penulis
 
-NIM: 13520118
-Nama: Mohamad Daffa Argakoesoemah
+13520118 - Mohamad Daffa Argakoesoemah
 
 ## Struktur Folder
 
@@ -39,7 +38,7 @@ SATURN
 URANUS
 VENUS
 ```
-File teks ini ** harus disimpan dalam root folder ** (salin file ke root folder jika ingin menggunakan file teks yang ada pada folder `test`)
+File teks ini **harus disimpan dalam root folder** (salin file ke root folder jika ingin menggunakan file teks yang ada pada folder `test`)
 
 1. Jalankan `App.java`
 2. Masukkan nama file beserta ekstensinya
